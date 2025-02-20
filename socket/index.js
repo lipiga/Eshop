@@ -1,9 +1,9 @@
 const socketIO = require("socket.io");
-import { createServer } from "http";
-import express, { json } from "express";
-import cors from "cors";
+const http = require("http");
+const express = require("express");
+const cors = require("cors");
 const app = express();
-const server = createServer(app);
+const server = http.createServer(app);
 const io = socketIO(server);
 
 require("dotenv").config({
@@ -11,7 +11,7 @@ require("dotenv").config({
 });
 
 app.use(cors());
-app.use(json());
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("Hello world from socket server!");
