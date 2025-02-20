@@ -1,4 +1,4 @@
-import socketIO from "socket.io";
+const socketIO = require("socket.io");
 import { createServer } from "http";
 import express, { json } from "express";
 import cors from "cors";
